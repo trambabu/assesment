@@ -14,6 +14,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.json.file.process.demo.model.Addresses;
 import com.json.file.process.demo.processor.AddressDataProcessor;
 import com.json.file.process.demo.processor.ValidateAddress;
+import com.json.file.process.demo.processor.ValidationJsonWithJsonSchema;
 
 /**
  * This is main file to execute which can process the Addresses.json file data
@@ -33,14 +34,21 @@ public class AddressesJsonProcessorApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(AddressesJsonProcessorApplication.class, args);
 		
-		AddressDataProcessor obj = new AddressDataProcessor();
-		obj.prettyPrint();
-		obj.certainTypeAddress();
-//		obj.jsonNodesPrint();
-		
-		obj.jsonNodesFieldesPrint();
-		ValidateAddress validate = new ValidateAddress();
-		validate.validateAddress();
+//		AddressDataProcessor obj = new AddressDataProcessor();
+//		obj.prettyPrint();
+//		obj.certainTypeAddress();
+//		
+//		// This following is supporting method to pring all Json nodes from json file
+////		obj.jsonNodesPrint();
+//		
+//		obj.jsonNodesFieldesPrint();
+//		ValidateAddress validate = new ValidateAddress();
+//		validate.validateAddress();
+//		
+		// This following supposed to be validate Json file Against Json Schema
+		// But some reason its failing.
+		ValidationJsonWithJsonSchema validationJson = new ValidationJsonWithJsonSchema();
+		validationJson.validateJsonWithJsonSchema();
 	
 	}
 }
